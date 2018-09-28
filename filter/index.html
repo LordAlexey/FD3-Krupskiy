@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Фильтр</title>
+</head>
+<body>
+<div id="container"></div>
+<script src="https://unpkg.com/react@15/dist/react.js"></script>
+<script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
+<script src="ListBlock.js"></script>
+<script src="Sort.js"></script>
+<script src="Search.js"></script>
+
+
+<script>
+
+    var list=[
+        {text:'хорошо',key:1},
+        {text:'не получается',key:2},
+        {text:'избегаю',key:3},
+        {text:'нагель',key:4},
+        {text:'оппортунистка',key:5},
+        {text:'употребительность',key:6},
+        {text:'глицинный',key:7},
+        {text:'гуманистический',key:8},
+        {text:'морщить',key:9},
+        {text:'грязнуля',key:10},
+        {text:'строгание',key:11},
+        {text:'звено',key:12},
+        {text:'удаленный',key:13},
+
+    ];
+
+    ReactDOM.render(
+        React.createElement(ListBlock,{list:list}),
+        document.getElementById('container')
+    );
+
+</script>
+
+
+</body>
+</html>
