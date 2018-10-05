@@ -6,17 +6,30 @@ var GoodsBlock = React.createClass({
 
     getInitialState : function () {
         return {
-            selected:null
+            selected:null,
+            items:this.props.goods
         }
     },
 
+    deleteItem : function (code) {
+       // console.log(code)
+        var items = [];
+        this.state.items.splice();
+            for(var i=0;i<this.state.items.length;i++) {
+                if(this.state.items[i].code!==code){
+                    items[items.length] = this.state.items[i];
+                }
+            }
+        this.setState({items:items})
+    },
+
     selectItem : function (code) {
-        console.log(code);
+      //  console.log(code);
         this.setState({selected:code});
     },
 
       render : function() {
-        var goods = this.props.goods.map(value =>
+        var goods = this.state.items.map(value =>
           React.createElement(Good,{
               name:value.name,
               price:value.price,
@@ -25,7 +38,8 @@ var GoodsBlock = React.createClass({
               code:value.code,
               key:value.code,
               selected:this.state.selected,
-              cbselectItem:this.selectItem
+              cbselectItem:this.selectItem,
+              cbdeleteItem:this.deleteItem
           })
       )
             console.log(

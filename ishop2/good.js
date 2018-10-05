@@ -12,6 +12,7 @@ var Good = React.createClass({
                 code: React.PropTypes.number,
                 cbselectItem:React.PropTypes.func,
                 selected:React.PropTypes.bool,
+                cbdeleteItem:React.PropTypes.func,
             })
         ),
     },
@@ -21,11 +22,16 @@ var Good = React.createClass({
         //console.log(this.props.code)
     },
 
+    deleteItem : function () {
+        if(confirm("Действительно удалить?"))
+        this.props.cbdeleteItem(this.props.code);
+    },
+
     render:function () {
 
 
         return React.DOM.div({
-                key:this.props.code,className:this.props.selected?"good col-4 sel":"good col-4",onClick:this.itemClick,
+                key:this.props.code,className:(this.props.selected===this.props.code)?"good col-4 sel":"good col-4",onClick:this.itemClick,
             },
             React.DOM.div({className:"wrap"},
                 React.DOM.h3({className:"name"},this.props.name),
@@ -33,7 +39,12 @@ var Good = React.createClass({
                 React.DOM.div({className:"description"},
                     React.DOM.span({className:"price col-6"},"Цена: " + this.props.price),
                     React.DOM.span({className:"count col-6"},"Количество: " + this.props.count)
-                )
+                ),
+                React.DOM.div({className:"buttons"},
+                    React.DOM.div({className:"btn btn-danger", onClick:this.deleteItem},"Удалить"),
+                    React.DOM.div({className:"btn btn-primary"},"Редактировать")
+                    )
+
 
             )
         )
