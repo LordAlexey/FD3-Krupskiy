@@ -1,0 +1,7 @@
+.inputs {
+    width: max-content;
+}
+.inputs label {
+    display: flex;
+    justify-content: space-between;
+}

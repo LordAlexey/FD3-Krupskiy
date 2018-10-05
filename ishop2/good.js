@@ -13,6 +13,7 @@ var Good = React.createClass({
                 cbselectItem:React.PropTypes.func,
                 selected:React.PropTypes.bool,
                 cbdeleteItem:React.PropTypes.func,
+                cbeditIdem:React.PropTypes.func,
             })
         ),
     },
@@ -25,6 +26,11 @@ var Good = React.createClass({
     deleteItem : function () {
         if(confirm("Действительно удалить?"))
         this.props.cbdeleteItem(this.props.code);
+    },
+
+    editItem:function () {
+        this.props.cbeditItem(this.props);
+        //console.log(this.props)
     },
 
     render:function () {
@@ -42,13 +48,9 @@ var Good = React.createClass({
                 ),
                 React.DOM.div({className:"buttons"},
                     React.DOM.div({className:"btn btn-danger", onClick:this.deleteItem},"Удалить"),
-                    React.DOM.div({className:"btn btn-primary"},"Редактировать")
-                    )
-
-
+                    React.DOM.div({className:"btn btn-primary",onClick:this.editItem},"Редактировать")
+                )
             )
         )
     }
-
-
 });
