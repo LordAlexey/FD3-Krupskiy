@@ -1,0 +1,31 @@
+.good{
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+
+.good .wrap {
+    border: 1px solid gray;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 15px;
+}
+
+.good h3 {
+    text-align: center;
+}
+
+.title {
+    margin: 0 auto;
+}
+
+.all-goods{
+
+}
+
+.new {
+    margin: 0 auto;
+    margin-top: 20px;
+}
