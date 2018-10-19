@@ -2,7 +2,7 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-
+import Good_card from './components/good_card';
 import Goods from './components/Goods';
 
 import './components/style.css';

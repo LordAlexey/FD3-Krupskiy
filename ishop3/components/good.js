@@ -13,6 +13,7 @@ class Good extends React.Component{
                 url: PropTypes.string.isRequired,
                 count: PropTypes.number.isRequired,
                 code: PropTypes.number,
+                mode: PropTypes.string.isRequired,
                 cbselectItem:PropTypes.func,
                 selected:PropTypes.bool,
                 cbdeleteItem:PropTypes.func,
@@ -45,11 +46,12 @@ class Good extends React.Component{
                     <div className="description">
                         <span className="price col-6">Цена: {this.props.price}</span>
                         <span className="count col-6">Количество: {this.props.count}</span>
-                    </div>
+                    </div>{
+                    (this.props.mode==='button') &&
                     <div className="buttons">
                         <div className="btn btn-danger" onClick={this.deleteItem}>Удалить</div>
                         <div className="btn btn-primary" onClick={this.editItem}>Редактировать</div>
-                    </div>
+                    </div>}
                 </div>
             </div>
         );

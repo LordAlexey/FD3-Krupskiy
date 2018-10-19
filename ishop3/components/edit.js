@@ -13,10 +13,19 @@ class Edit extends React.Component{
                 id: PropTypes.number,
                 cbcancel: PropTypes.func,
                 cbsaveEdit: PropTypes.func,
+                cbvalidate:PropTypes.func,
     };
 
     cancelEdit = () => {
         this.props.cbcancel();
+    };
+
+    validate = () => {
+        this.props.cbvalidate( document.getElementsByName("name")[0]['value'],
+            document.getElementsByName("price")[0]['value'],
+            document.getElementsByName("url")[0]['value'],
+            document.getElementsByName("count")[0]['value'],
+            this.props.id)
     };
 
     saveEdit =() =>{
@@ -37,7 +46,7 @@ class Edit extends React.Component{
             <div className="row">Редактирование элемента</div>
               <div className="row d-flex flex-column inputs">
                   <label htmlFor="">Название
-                      <input type="text" name="name" defaultValue={this.props.name}/>
+                      <input type="text" name="name" defaultValue={this.props.name} onChange={this.validate}/>
                   </label>
                   {
                       this.props.errors.name&&
@@ -46,7 +55,7 @@ class Edit extends React.Component{
                       </div>
                   }
                   <label htmlFor="">Цена
-                      <input type="text" name="price" defaultValue={this.props.price}/>
+                      <input type="text" name="price" defaultValue={this.props.price} onChange={this.validate}/>
                   </label>
                   {
                       this.props.errors.price&&
@@ -55,7 +64,7 @@ class Edit extends React.Component{
                       </div>
                   }
                   <label htmlFor="">Картинка
-                      <input type="text" name="url" defaultValue={this.props.url}/>
+                      <input type="text" name="url" defaultValue={this.props.url} onChange={this.validate}/>
                   </label>
                   {
                       this.props.errors.url&&
@@ -64,7 +73,7 @@ class Edit extends React.Component{
                       </div>
                   }
                   <label htmlFor="">Количество
-                      <input type="text" name="count" defaultValue={this.props.count}/>
+                      <input type="text" name="count" defaultValue={this.props.count} onChange={this.validate}/>
                   </label>
                   {
                       this.props.errors.count&&
